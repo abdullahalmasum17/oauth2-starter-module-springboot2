@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
-@ComponentScan(basePackages = {"org.thepurplelabsinc.oauth2.resourceserver", "org.thepurplelabsinc.oauth2.sampleapplication"})
+@ComponentScan(basePackages = {"org.thepurplelabsinc.oauth2.sampleapplication", "org.thepurplelabsinc.oauth2.resourceserver"})
 @RestController
 public class Application {
 
@@ -21,12 +21,12 @@ public class Application {
 	@Autowired
 	private ResourceServerProperties resourceServerProperties;
 	
-	@GetMapping("/user")
+	@GetMapping("/user/message")
 	public String userMessage() {
 		return resourceServerProperties.getMessage() + " for the user";
 	}
 	
-	@GetMapping("/admin")
+	@GetMapping("/admin/message")
 	public String adminMessage() {
 		return resourceServerProperties.getMessage() + " for the admin";
 	}

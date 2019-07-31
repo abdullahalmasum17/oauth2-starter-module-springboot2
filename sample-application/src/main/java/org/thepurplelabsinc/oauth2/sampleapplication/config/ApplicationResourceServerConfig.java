@@ -7,16 +7,17 @@ import org.thepurplelabsinc.oauth2.resourceserver.config.ResourceServerConfigura
 @Configuration
 public class ApplicationResourceServerConfig extends ResourceServerConfiguration {
 	
+	
 	@Override
 	public void configure(HttpSecurity http) throws Exception {
 		http
 				.requestMatchers().antMatchers("/**")
 				.and().authorizeRequests()
-				.antMatchers("/admin")
+				.antMatchers("/admin/**")
 				.hasRole("ADMIN")
-				.antMatchers("/user")
+				.antMatchers("/user/**")
 				.hasRole("USER")
-				.anyRequest().authenticated()
+//				.anyRequest().authenticated()
 //				.and().exceptionHandling().accessDeniedHandler(new OAuth2AccessDeniedHandler())
 		;
 	}
