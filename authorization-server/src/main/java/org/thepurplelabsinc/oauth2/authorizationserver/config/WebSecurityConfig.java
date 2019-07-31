@@ -32,43 +32,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				User.withUsername("admin").password(passwordEncoder().encode("password")).roles("ADMIN").build()
 		);
 	}
-//
-//	@Override
-//	public void configure(HttpSecurity http) throws Exception {
-//		http
-//				.anonymous().disable()
-//				.csrf().disable();
-//				.authorizeRequests().antMatchers("/oauth/**").hasRole("USER");
-//				.antMatchers("/oauth/token/", "/oauth/authorize/").permitAll();
-//	}
-//
+
 	@Override
 	@Bean
 	public AuthenticationManager authenticationManagerBean() throws Exception {
 		return super.authenticationManagerBean();
 	}
 	
-//	@Bean
-//	public TokenStore tokenStore() {
-//		return new InMemoryTokenStore();
-//	}
-//
-//	@Bean
-//	@Autowired
-//	public TokenStoreUserApprovalHandler userApprovalHandler(TokenStore tokenStore) {
-//		TokenStoreUserApprovalHandler handler = new TokenStoreUserApprovalHandler();
-//		handler.setTokenStore(tokenStore);
-//		handler.setRequestFactory(new DefaultOAuth2RequestFactory(clientDetailsService));
-//		handler.setClientDetailsService(clientDetailsService);
-//		return handler;
-//	}
-//
-//	@Bean
-//	@Autowired
-//	public ApprovalStore approvalStore(TokenStore tokenStore) {
-//		TokenApprovalStore approvalStore = new TokenApprovalStore();
-//		approvalStore.setTokenStore(tokenStore);
-//		return approvalStore;
-//	}
 	
 }

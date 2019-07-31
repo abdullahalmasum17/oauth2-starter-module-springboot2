@@ -45,8 +45,8 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
 				.authorities("ROLE_CLIENT", "ROLE_TRUSTED_CLIENT")
 				.scopes("read", "write", "trust")
 				.secret(passwordEncoder.encode("secret"))
-				.accessTokenValiditySeconds(1 * 60) // 2 minute
-				.refreshTokenValiditySeconds(3 * 60); // 1 hour
+				.accessTokenValiditySeconds(5 * 60) // 2 minute
+				.refreshTokenValiditySeconds(10 * 60); // 3 minute
 	}
 	
 	@Override
@@ -60,10 +60,6 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
 				.userDetailsService(userDetailsService);
 	}
 	
-//	@Bean
-//	public PasswordEncoder passwordEncoder() {
-//		return PasswordEncoderFactories.createDelegatingPasswordEncoder();
-//	}
 
 	@Bean
 	public TokenStore tokenStore() {
@@ -78,8 +74,8 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
 		defaultTokenServices.setReuseRefreshToken(false);
 		defaultTokenServices.setSupportRefreshToken(true);
 //		defaultTokenServices.setTokenEnhancer(accessTokenConverter());
-		defaultTokenServices.setAccessTokenValiditySeconds(1);
-		defaultTokenServices.setRefreshTokenValiditySeconds(10);
+//		defaultTokenServices.setAccessTokenValiditySeconds(1); // seems not to work
+//		defaultTokenServices.setRefreshTokenValiditySeconds(10); // seems not to work
 		return defaultTokenServices;
 	}
 
