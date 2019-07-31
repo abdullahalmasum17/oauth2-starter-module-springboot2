@@ -22,8 +22,8 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
 
 
 //	@Bean
-//	public ResourceServerProperties serviceProperties(ResourceServerProperties serviceProperties) {
-//		return serviceProperties;
+//	public ResourceServerProperties serviceProperties(ResourceServerProperties resourceServerProperties) {
+//		return resourceServerProperties;
 //	}
 	
 	@Override
@@ -31,8 +31,7 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
 		http
 				.requestMatchers().antMatchers("/**")
 				.and().authorizeRequests()
-				.antMatchers("/**")
-				.hasRole("USER")
+				.antMatchers("/**").authenticated()
 //				.and().exceptionHandling().accessDeniedHandler(new OAuth2AccessDeniedHandler())
 		;
 	}
