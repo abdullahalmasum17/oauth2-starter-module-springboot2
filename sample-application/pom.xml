@@ -8,9 +8,9 @@
 		<version>2.1.6.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.sbsatter.oauth2</groupId>
+	<groupId>org.thepurplelabsinc</groupId>
 	<artifactId>sample-application</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<name>sample-application</name>
 	<description>A sample project to integrate resource server</description>
 
@@ -46,9 +46,9 @@
 			<scope>test</scope>
 		</dependency>
         <dependency>
-            <groupId>com.sbsatter.demo</groupId>
+            <groupId>org.thepurplelabsinc</groupId>
             <artifactId>resource-server</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <version>0.0.1</version>
         </dependency>
 	</dependencies>
 
